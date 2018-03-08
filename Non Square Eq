@@ -10,11 +10,10 @@ int main()
 	long long x, sum = 0;
 	cin >> x;
 	long long sq = sqrt(x);
-	long long size = sq - 100000;
-
-	if (size > 0)
+	long long size = sq - 1000000;
+	if (size > 1)
 	{
-		for (long long i = size; i <= size; i++)
+		for (long long i = size; i <= sq; i++)
 		{
 			sum = 0;
 			long long s = i;
@@ -34,7 +33,7 @@ int main()
 	}
 	else
 	{
-		for (long long i = 1; i <= size; i++)
+		for (long long i = 1; i <= sq; i++)
 		{
 			sum = 0;
 			long long s = i;
