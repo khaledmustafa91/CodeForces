@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <list>
+#include <map>
+using namespace std;
+
+int main()
+{
+	int n, m;
+	double k;
+	cin >> n >> m;
+	cin >> k;
+	vector <pair<string, int> > v;
+	map<string, int> mp;
+	for (int i = 0; i < n; i++)
+	{
+		string s;
+		int x;
+		cin >> s >> x;
+		int z = x * k;
+		if (z >= 100)
+		{
+			v.push_back(make_pair(s, z));
+			mp[s] = 1;
+		}
+
+	}
+	vector <pair<string, int> >::iterator it;
+	for (int i = 0; i < m; i++)
+	{
+		string s1;
+		cin >> s1;
+		if( mp[s1] != 1 )
+			v.push_back(make_pair(s1, 0));
+	}
+	sort(v.begin(), v.end());
+	cout << v.size() << endl;
+	for (int i = 0; i < v.size(); i++)
+		cout << v[i].first << " " << v[i].second << endl;
+	return 0;
+}
