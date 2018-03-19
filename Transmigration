@@ -5,12 +5,13 @@
 #include <set>
 #include <list>
 #include <map>
+#include <cmath>
 using namespace std;
 
 int main()
 {
 	int n, m;
-	double k;
+	double k ;
 	cin >> n >> m;
 	cin >> k;
 	vector <pair<string, int> > v;
@@ -20,7 +21,7 @@ int main()
 		string s;
 		int x;
 		cin >> s >> x;
-		int z = x * k;
+		float z = x * k;
 		if (z >= 100)
 		{
 			v.push_back(make_pair(s, z));
