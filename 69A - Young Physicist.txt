@@ -1,0 +1,24 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{int r,x,y,z,res1,res2,res3;
+res1=0;
+res2=0;
+res3=0;
+cin>>r;
+for(int i=1;i<=r;i=i+1){
+    cin>>x>>y>>z;
+
+        res1+=x;
+        res2+=y;
+        res3+=z;
+
+}
+if(res1==0&&res2==0&res3==0){
+    cout<<"YES";
+}else{
+cout<<"NO";}
+    return 0;
+}

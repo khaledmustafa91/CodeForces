@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <list>
+#include <map>
+#include <cmath>
+#include <stack>
+using namespace std;
+
+int main()
+{
+	char c;
+	string test = "qwertyuiopasdfghjkl;zxcvbnm,./";
+	string s, res;
+	cin >> c;
+	cin >> s;
+	string *it;
+	if (c == 'R')
+	{
+		for (int i = 0; i < s.size(); i++)
+		{
+			int j = 0;
+			for (j = 0; j < test.size(); j++)
+				if (s[i] == test[j])
+					break;
+			res += test[j - 1];
+		}
+	}
+	else
+	{
+		for (int i = 0; i < s.size(); i++)
+		{
+			int j = 0;
+			for (j = 0; j < test.size(); j++)
+				if (s[i] == test[j])
+					break;
+			res += test[j + 1];
+		}
+	}
+	cout << res << endl;
+	return 0;
+}

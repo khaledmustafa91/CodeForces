@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main() 
+{
+	int tram = 0, x, n, e, cap = 0;
+	cin >> x;
+	for (int i = 0; i < x; i++)
+	{
+		cin >> n >> e;
+		if (i == 0)
+		{
+			tram += e;
+			cap = tram;
+		}
+		else
+		{
+			tram -= n;
+			tram += e;
+			if (tram > cap)
+				cap = tram;
+		}
+	}
+	cout << cap << endl;
+	return 0;
+}

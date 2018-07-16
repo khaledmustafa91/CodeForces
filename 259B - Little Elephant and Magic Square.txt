@@ -1,0 +1,68 @@
+#include <bits/stdc++.h>
+using namespace std;
+int incrment = 0;
+int check(int x)
+{
+    while(true)
+    {
+        incrment++;
+        int z = 3 * incrment;
+        if(z >= x)
+            return z;
+    }
+}
+
+int arr[3][3];
+int main()
+{
+    for(int i = 0 ; i < 3 ; i++)
+        for(int j = 0 ; j < 3 ; j++)
+            cin>>arr[i][j];
+
+    int mx =0,row1 = 0, row2 = 0, row3 = 0;
+    for(int i = 0 ; i < 3 ; i++)
+    {
+        mx = max(row1, row2);
+        mx = max(mx, row3);
+        for(int j = 0 ; j < 3 ; j++)
+        {
+            if(i == 0)
+                row1 +=arr[i][j];
+            else if(i == 1)
+                row2 += arr[i][j];
+            else
+                row3 += arr[i][j];
+        }
+    }
+    int res = check(mx);
+    while(true)
+    {
+        bool b = true;
+        arr[0][0] = abs(res - row1);
+        arr[1][1] = abs(res - row2);
+        arr[2][2] = abs(res - row3);
+        int col = 0, row = 0;
+        for(int i = 0 ; i < 1 ; i++)
+        {
+            for(int j = 0 ; j < 3 ; j++)
+            {
+                row += arr[i][j];
+                col += arr[j][i];
+            }
+        }
+        int dia =   arr[0][0] +  arr[1][1] +  arr[2][2];
+        if(row == col && dia == col )
+        {
+            for(int i = 0 ; i < 3 ; i++)
+            {
+                for(int j = 0 ; j < 3 ; j++)
+                    cout<<arr[i][j]<<" ";
+                cout<<endl;
+            }
+            break;
+        }
+        else
+            res = check(mx);
+    }
+    return 0;
+}

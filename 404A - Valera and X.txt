@@ -1,0 +1,77 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <list>
+#include <map>
+#include <cmath>
+#include <stack>
+using namespace std;
+
+using namespace std;
+
+int main()
+{
+	int x;
+	cin >> x;
+	char arr[1000][1000] = { 0 };
+	for (int i = 0; i < x; i++)
+		for (int j = 0; j < x; j++)
+		{
+			cin >> arr[i][j];
+		}
+	bool dia = false;
+	int index = x-1;
+	char c = arr[0][0];
+	char second = arr[0][1];
+	for (int i = 0; i < x; i++)
+	{
+		if(i != 0)
+			index--;
+		for (int j = 0; j < x; j++)
+		{
+			if (c == arr[i][j] && i == j)
+			{
+				dia = true;
+				arr[i][j] = 0;
+			}
+			else if (c != arr[i][j] && i == j && arr[i][j] != 0)
+			{
+				dia = false;
+				break;
+			}
+			if (c == arr[i][index] && arr[i][index] != 0 )
+			{
+				dia = true;
+				arr[i][index] = 0;
+			}
+			else if(c != arr[i][index] && arr[i][index] != 0)
+			{
+				dia = false;
+				break;
+			}
+			
+		}
+	if (dia == false)
+			break;
+	}
+	bool other = true;
+	index = x - 1;
+	for (int i = 0; i < x; i++)
+	{
+		for (int j = 0; j < x; j++)
+			if (second != arr[i][j] && arr[i][j] != 0 || arr[i][j] == c)
+			{
+				other = false;
+				break;
+			}
+		
+	}
+	if (dia && other)
+		cout << "YES" << endl;
+	else
+		cout << "NO" << endl;
+
+	return 0;
+}

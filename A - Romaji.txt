@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+char arr[] = {'a', 'o', 'u', 'i','e'};
+bool solve(char s)
+{
+    for(int j = 0 ; j < 5 ; j++)
+        if( s == arr[j] )
+            return false;
+    return true;
+}
+int main()
+{
+    string s;
+    cin>>s;
+    bool b = true;
+    for(int i = 0 ; i < s.size(); i++)
+    {
+        if(solve(s[i]) && s[i] != 'n' && i != (s.size()-1))
+        {
+            if(solve(s[i+1]))
+            {
+                cout<<"NO"<<endl;
+                b = false;
+                return 0;
+            }
+        }
+        else if(solve(s[s.size()-1]) && s[s.size()-1] != 'n')
+            {
+                    cout<<"NO"<<endl;
+                b = false;
+                return 0;
+
+            }
+    }
+    if(b)
+        cout<<"YES"<<endl;
+    return 0;
+}

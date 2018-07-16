@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <list>
+#include <map>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+	long long x , y;
+	char c;
+	cin >> x >> y;
+	long long res = y,kids = 0;
+	
+	for (int i = 0; i < x; i++)
+	{
+		long long z;
+		cin >> c >> z;
+		if (c == '+')
+			res += z;
+		else if (c == '-')
+			if (z <= res)
+				res -= z;
+			else
+				kids++;
+	}
+	cout << res << " " << kids << endl;
+	return 0;
+}

@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main() {
+	int res = 0, res1 = 0 , result = 0;
+	string s , s1;
+	char c , x;
+	cin >> s >> s1;
+	bool b = true;
+	for (int i = 0; i < s.size(); i++)
+	{
+		c = tolower(s[i]);
+		x = tolower(s1[i]);
+		if (c > x)
+		{
+			cout << "1" << endl;
+			 b = false;
+			break;
+		}
+		else if (c < x)
+		{
+			cout << "-1" << endl;
+			 b = false;
+			break;
+		}
+		else
+			result += 1;
+
+	}
+	if (b)
+	{
+		cout << "0" << endl;
+	}
+	return 0;
+}

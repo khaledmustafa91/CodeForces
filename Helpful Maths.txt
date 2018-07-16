@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main() 
+{
+	int x = 0;
+	char arr[105] = { 0 }, res[105] = { 0 };
+	string s;
+	cin >> s;
+	
+	for (int i = 0; i < s.size(); i++)
+	{
+		if (s[i] != '+')
+		{
+			arr[x] = s[i];
+			x++;
+		}	
+	}
+	sort(arr, arr + x);
+	int count = 0;
+	for (int i = 0; i < x; i++)
+	{
+
+		if (arr[i] != ' ' && arr[i] != '+')
+		{
+			res[count] += arr[i];
+			if(i != (x-1))
+				res[count + 1] += '+';
+			count = count + 2;
+		}
+	}
+	for (int i = 0; i < s.size(); i++)
+		cout << res[i];
+	return 0;
+}

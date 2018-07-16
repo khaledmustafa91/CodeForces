@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <list>
+#include <map>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+	int a , b , res = 0 , res2 = 0;
+	cin>>a;
+	int arr[a+1];
+	for(int i = 1 ; i <= a ; i++)
+	    cin>>arr[i];
+	  
+	int chest = 0 , biceps = 0 , back = 0;
+	for(int i = 1 ; i <= a ; i++)
+	    {
+	        if(i % 3 == 1)
+	            chest+=arr[i];
+	        else if(i % 3 == 2 )
+	            biceps+= arr[i];
+	        else 
+	            back += arr[i];
+	    }
+	res = max(chest , biceps );
+	res = max(res , back);
+
+	if( res == back)
+	    cout<<"back"<<endl;
+	else if (res > back && res ==  chest)
+	        cout<<"chest"<<endl;
+	else if ( res > back && res == biceps)
+	    cout<<"biceps"<<endl;
+	else 
+	    cout<<"unambiguous"<<endl;
+	return 0;
+}

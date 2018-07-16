@@ -1,0 +1,42 @@
+#include<iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+int main()
+{
+	long long x, y, odd = 0 , even = 0;
+	cin >> x >> y;
+	if (x % 2 == 0)
+	{
+		long long res = x / 2;
+		if (y <= res)
+		{
+			odd = (y - 1) + y;
+			cout << odd << endl;
+		}
+		else
+		{
+			odd = (y - 1) + y;
+			even = odd - x + 1 ;
+			cout << even << endl;
+		}
+	}
+	else
+	{
+		long long res = (x / 2) + 1;
+		if (y <= res)
+		{
+			odd = (y - 1) + y;
+			cout << odd << endl;
+		}
+		else
+		{
+			odd = (y - 1) + y;
+			even = odd - x ;
+			cout << even << endl;
+		}
+	}
+	return 0;
+}
+
+http://codeforces.com/problemset/problem/318/A

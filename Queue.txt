@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+#include <queue>
+using namespace std;
+int main() {
+	char c;
+	queue <int> f1, f2, res;
+	int x, y;
+	cin >> x >> y;
+	while (y != 0) {
+		for (int i = 0; i < x; i++) {
+			cin >> c;
+			f1.push(c);
+			if (f1.front() == 'B' && i != x - 1) {
+				f2.push(c);
+				if (!f1.empty())
+					f1.pop();
+			}
+			else if (f1.front() == 'G' && f2.front() == 'B') {
+				res.push(f1.front());
+				res.push(f2.front());
+				if (!f1.empty()) {
+					f1.pop();
+				}
+				if (!f2.empty()) {
+					f2.pop();
+				}
+			}
+			else if (f1.front() == 'G') {
+				res.push(f1.front());
+				if (!f1.empty()) {
+					f1.pop();
+				}
+			}
+		}
+		if (y > 0) {
+			while (!res.empty())
+			{
+				f1.push(res.front());
+			}
+		}
+		y--;
+	}
+	while (!res.empty()) {
+		cout << res.front();
+	}
+	return 0;
+	
+}
